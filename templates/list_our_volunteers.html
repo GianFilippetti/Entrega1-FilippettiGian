@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    nuestros_voluntarios
+{% endblock %}
+
+{% block forms %}
+<a style="background-color: rgb(43, 255, 0);" href="http://127.0.0.1:8000/modelos/nuevo_voluntario/" class="btn btn-primary">Agregar nuevo voluntario</a> 
+{% endblock %}
+
+
+
+{%block content%}
+    {% for elemento in our_volunteers %}
+        <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{elemento.volunteer_name}}</h5>
+                <p class="card-text">Tiene {{elemento.volunteer_age}} años.</p>
+                <p class="card-text">Es voluntario por que {{elemento.volunteer_reason_to_be_a_volunteer}}.</p>
+                <p class="card-text">Su perro favorito es: {{elemento.volunteer_favourite_dog_and_reason}}.</p>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

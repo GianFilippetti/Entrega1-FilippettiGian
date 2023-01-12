@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    nuestros_perros
+{% endblock %}
+
+{% block forms %}
+    <a style="background-color: rgb(43, 255, 0);" href="http://127.0.0.1:8000/modelos/nuevo_perro/" class="btn btn-primary">Agregar nuevo perro</a> 
+
+{% endblock %}
+
+
+
+{%block content%}
+    {%for elemento in our_dogs %}
+        <div class="card" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="">
+            <div class="card-body">
+                <h5 class="card-title">{{elemento.dog_name}}</h5>
+                <p class="card-text">Tiene {{elemento.dog_age}} años.</p>
+                <p class="card-text">{{elemento.dog_history}}.</p>
+            {% if elemento.dog_status == True %}
+                <p style="color: red;">Esta buscando un hogar</p>
+            {% else %}
+                <p style="color:blue;">Esta adoptado</p>
+            {% endif %}
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

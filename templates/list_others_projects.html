@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Nuestros_proyectos
+{% endblock %}
+
+{% block forms %}
+<a style="background-color: rgb(43, 255, 0);" href="http://127.0.0.1:8000/modelos/nuevo_proyecto/" class="btn btn-primary">Agregar nuevo proyecto</a> 
+{% endblock %}
+{%block content%}
+    {% for elemento in others_projects %}
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{elemento.project_name}}</h5>
+                <p class="card-text">A cargo de {{elemento.institution_or_person_in_charge}}.</p>
+                <p class="card-text">Su objetivo es {{elemento.project_objective}}.</p>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
